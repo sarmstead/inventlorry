@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_10_15_152345) do
+ActiveRecord::Schema[8.1].define(version: 2026_10_15_175749) do
   create_table "makes", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -31,5 +31,15 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_15_152345) do
     t.index ["model_id"], name: "index_trims_on_model_id"
   end
 
-  add_foreign_key "trims", "models"
+  create_table "vehicles", force: :cascade do |t|
+    t.string "name"
+    t.integer "make_id", null: false
+    t.integer "model_id", null: false
+    t.integer "trim_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["make_id"], name: "index_vehicles_on_make_id"
+    t.index ["model_id"], name: "index_vehicles_on_model_id"
+    t.index ["trim_id"], name: "index_vehicles_on_trim_id"
+  end
 end
