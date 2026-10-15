@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :models
   resources :makes
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -13,4 +14,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   resource :makes
+  resource :models
 end
