@@ -1,0 +1,12 @@
+<% content_for :title, "Editing trim" %>
+
+<h1>Editing trim</h1>
+
+<%= render "form", trim: @trim %>
+
+<br>
+
+<div>
+  <%= link_to "Show this trim", @trim %> |
+  <%= link_to "Back to trims", trims_path %>
+</div>

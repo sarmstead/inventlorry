@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @trim %>
+
+<div>
+  <%= link_to "Edit this trim", edit_trim_path(@trim) %> |
+  <%= link_to "Back to trims", trims_path %>
+
+  <%= button_to "Destroy this trim", @trim, method: :delete %>
+</div>

@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Trims" %>
+
+<h1>Trims</h1>
+
+<div id="trims">
+  <% @trims.each do |trim| %>
+    <%= render trim %>
+    <p>
+      <%= link_to "Show this trim", trim %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New trim", new_trim_path %>
