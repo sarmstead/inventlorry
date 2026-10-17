@@ -28,11 +28,11 @@
 
   <div>
     <%= form.label :trim_id, style: "display: block" %>
-    <%= form.select :trim_id, [["-- select trim --", -1]], {}, { disabled: true, data: { vehicle_target: "trim" } } %>
+    <%= form.select :trim_id, [["-- select trim --", -1]], {}, { disabled: true, data: { vehicle_target: "trim", action: "change->vehicle#selectTrim" } } %>
   </div>
 
   <div>
-    <%= form.submit "Create vehicle", { data: { vehicle_target: "create", action: "click->vehicle#createVehicle" }} %>
+    <%= form.submit "Create vehicle", { disabled: true, data: { vehicle_target: "create" }} %>
     <button>Reset</button>
   </div>
 <% end %>

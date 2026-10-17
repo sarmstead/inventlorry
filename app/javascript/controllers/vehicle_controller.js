@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="vehicle"
 export default class extends Controller {
-  static targets = ["make", "model", "trim"];
+  static targets = ["make", "model", "trim", "create"];
   classes = { selected: "selected" };
 
   connect() {}
@@ -17,11 +17,13 @@ export default class extends Controller {
         option.value = model.id;
         this.modelTarget.appendChild(option);
       });
-      this.makeTarget.disabled = true;
       this.makeTarget.classList.add(this.classes.selected);
       this.modelTarget.disabled = false;
     } else {
-      return;
+      disableMakeField();
+      disableModelField();
+      disableTrimField();
+      this.createTarget.disabled = true;
     }
   }
 
@@ -35,21 +37,36 @@ export default class extends Controller {
         option.value = trim.id;
         this.trimTarget.appendChild(option);
       });
-      this.modelTarget.disabled = true;
       this.modelTarget.classList.add(this.classes.selected);
       this.trimTarget.disabled = false;
+    } else {
+      disableMakeField();
+      disableModelField();
+      disableTrimField();
+      this.createTarget.disabled = true;
+    }
+  }
+
+  selectTrim() {
+    if (this.trimTarget.value !== -1) {
+      this.createTarget.disabled = false;
     } else {
       return;
     }
   }
 
-  createVehicle(event) {
-    event.preventDefault();
-    const makeSelected = this.makeTarget.value !== -1;
-    const modelSelected = this.modelTarget.value !== -1;
-    const trimSelected = this.trimTarget.value !== -1;
-    if (makeSelected && modelSelected && trimSelected) {
-      // create vehicle via API request
-    }
+  disableMakeField() {
+    this.makeTarget.value = -1;
+    this.makeTarget.disabled = true;
+  }
+
+  disableModelField() {
+    this.modelTarget.value = -1;
+    this.modelTarget.disabled = true;
+  }
+
+  disableTrimField() {
+    this.trimTarget.value = -1;
+    this.trimTarget.disabled = true;
   }
 }
