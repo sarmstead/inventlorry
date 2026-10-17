@@ -17,7 +17,7 @@ class ModelsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create model" do
     assert_difference("Model.count") do
-      post models_url, params: { model: { name: @model.name } }
+      post models_url, params: { model: { name: @model.name, make_id: @model.make_id } }
     end
 
     assert_redirected_to model_url(Model.last)

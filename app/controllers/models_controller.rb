@@ -65,6 +65,6 @@ class ModelsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def model_params
-      params.expect(model: [ :name ])
+      params.expect(model: [ :name, :make_id ])
     end
 end
