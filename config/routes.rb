@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   resources :vehicles
   resources :trims
   resources :models
-  resources :makes
+  resources :makes do
+    resources :models, only: :index, controller: :make_models
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
