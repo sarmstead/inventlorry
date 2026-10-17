@@ -23,12 +23,12 @@
 
   <div>
     <%= form.label :model_id, style: "display: block" %>
-    <%= form.select :model_id, [["-- select model --", -1]], {}, { disabled: true, data: { vehicle_target: "model" } } %>
+    <%= form.select :model_id, [["-- select model --", -1]], {}, { disabled: true, data: { vehicle_target: "model", action: "change->vehicle#selectModel" } } %>
   </div>
 
   <div>
     <%= form.label :trim_id, style: "display: block" %>
-    <%= form.select :trim_id, [["-- select trim --", -1]], {}, { disabled: true } %>
+    <%= form.select :trim_id, [["-- select trim --", -1]], {}, { disabled: true, data: { vehicle_target: "trim" } } %>
   </div>
 
   <div>

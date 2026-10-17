@@ -7,7 +7,7 @@ export default class extends Controller {
 
   connect() {}
 
-  async selectMake(e) {
+  async selectMake() {
     const fetchedModels = await fetch(`/makes/${this.makeTarget.value}/models`);
     const models = await fetchedModels.json();
     if (models.length > 0) {
@@ -20,6 +20,24 @@ export default class extends Controller {
       this.makeTarget.disabled = true;
       this.makeTarget.classList.add(this.classes.selected);
       this.modelTarget.disabled = false;
+    } else {
+      return;
+    }
+  }
+
+  async selectModel() {
+    const fetchedTrims = await fetch(`/models/${this.modelTarget.value}/trims`);
+    const trims = await fetchedTrims.json();
+    if (trims.length > 0) {
+      trims.forEach((trim) => {
+        const option = document.createElement("option");
+        option.innerText = trim.name;
+        option.value = trim.id;
+        this.trimTarget.appendChild(option);
+      });
+      this.modelTarget.disabled = true;
+      this.modelTarget.classList.add(this.classes.selected);
+      this.trimTarget.disabled = false;
     } else {
       return;
     }
