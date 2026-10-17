@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :vehicles
   resources :trims
-  resources :models
+  resources :models do
+    resources :trims, only: :index, controller: :model_trims
+  end
   resources :makes do
     resources :models, only: :index, controller: :make_models
   end
