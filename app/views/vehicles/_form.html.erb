@@ -18,7 +18,7 @@
 
   <div>
     <%= form.label :make_id, style: "display: block" %>
-    <%= form.select :make_id, [["-- select make --", -1]].concat(Make.all.map {|m| [m.name, m.id]}), {}, { data: { vehicle_target: "make", action: "change->vehicle#selectMake" }} %>
+    <%= form.select :make_id, [["-- select make --", -1]].concat(Make.with_models.pluck(:name, :id)), {}, { data: { vehicle_target: "make", action: "change->vehicle#selectMake" }} %>
   </div>
 
   <div>
