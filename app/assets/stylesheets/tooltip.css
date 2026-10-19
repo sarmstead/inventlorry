@@ -1,0 +1,48 @@
+.tooltip {
+  position: relative;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  box-shadow: -8px 8px 16px 0px hsla(0, 0%, 0%, 0.1);
+  background: var(--color-tooltip);
+  padding: var(--spacing-1);
+  overflow: visible;
+}
+
+.tooltip::before {
+  position: absolute;
+}
+
+.tooltip > p {
+  font-size: 12px;
+  color: var(--color-white);
+}
+
+.tooltip--right {
+  margin-left: var(--spacing-1-half);
+  animation: slideInFromLeft 0.25s ease-in-out;
+  position-area: right;
+  position-try-fallbacks: flip-inline;
+}
+
+.tooltip--right::before {
+  content: "";
+  width: 10px;
+  height: 12px;
+  background-color: var(--color-tooltip);
+  clip-path: polygon(100% 0%, 100% 100%, 0% 50%);
+  top: 50%;
+  transform: translateY(-50%);
+  left: -10px;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-12px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

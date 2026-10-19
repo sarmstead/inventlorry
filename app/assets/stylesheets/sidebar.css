@@ -101,7 +101,7 @@
   align-items: center;
   justify-content: center;
   gap: var(--spacing-1);
-  background: white;
+  background: var(--color-white);
   border: 1px solid var(--color-navy-000);
   border-radius: 100%;
   cursor: pointer;
@@ -110,6 +110,7 @@
   position: absolute;
   bottom: 64px;
   right: -12px;
+  anchor-name: --sidebarToggleTooltip;
 
   path {
     stroke: var(--color-navy-000);
@@ -120,6 +121,10 @@
   background: var(--color-navy-000);
 
   path {
-    stroke: white;
+    stroke: var(--color-white);
   }
+}
+
+.sidebar__toggle__tooltip {
+  position-anchor: --sidebarToggleTooltip;
 }
