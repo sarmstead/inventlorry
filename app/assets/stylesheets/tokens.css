@@ -1,8 +1,11 @@
 * {
   --color-neutral-000: hsl(0, 0%, 13%);
+  --color-neutral-900: hsl(0, 0%, 90%);
   --color-navy-000: hsl(240, 58%, 31%);
+  --color-surface-secondary: hsl(0, 0%, 98%);
   --font-family-primary: 'Inter', sans-serif;
   --font-family-secondary: 'Source Code Pro', monospace;
+  --spacing-half: 4px;
   --spacing-1: 8px;
   --spacing-1-half: 12px;
 }

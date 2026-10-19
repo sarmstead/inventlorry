@@ -1,0 +1,125 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+  padding: var(--spacing-1);
+  border-right: 1px solid var(--color-neutral-900);
+  position: relative;
+  background: var(--color-surface-secondary);
+}
+
+.sidebar:not(.sidebar--expanded) {
+  .sidebar__logo--icon-only {
+    display: block;
+    width: 100%;
+    max-width: 75px;
+  }
+
+  .sidebar__logo--full {
+    display: none;
+  }
+
+  .sidebar__list__label {
+    display: none;
+  }
+
+  .sidebar__icon__expand {
+    display: block;
+  }
+
+  .sidebar__icon__collapse {
+    display: none;
+  }
+
+  .sidebar__list__link {
+    justify-content: center;
+  }
+}
+
+.sidebar--expanded {
+  .sidebar__logo--full {
+    display: block;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .sidebar__logo--icon-only,
+  .sidebar__icon__expand {
+    display: none;
+  }
+
+  .sidebar__icon__collapse {
+    display: block;
+  }
+
+  .sidebar__list__link {
+    justify-content: flex-start;
+  }
+}
+
+.sidebar__icon__collapse,
+.sidebar__icon__expand {
+  width: 16px;
+  height: 16px;
+}
+
+.sidebar__list__icon {
+  width: 24px;
+  height: 24px;
+}
+
+.sidebar__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1-half);
+  padding: 0;
+  list-style: none;
+  margin-top: 32px;
+}
+
+.sidebar__list__link {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-half);
+  font-weight: 600;
+  letter-spacing: 0.125ch;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.sidebar__list__label,
+.sidebar__list__icon path {
+  color: var(--color-navy-000);
+}
+
+.sidebar__list__link:hover {
+  opacity: 0.9;
+}
+
+.sidebar__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-1);
+  background: white;
+  border: 1px solid var(--color-navy-000);
+  border-radius: 100%;
+  cursor: pointer;
+  padding: var(--spacing-half);
+  width: fit-content;
+  position: absolute;
+  bottom: 64px;
+  right: -12px;
+
+  path {
+    stroke: var(--color-navy-000);
+  }
+}
+
+.sidebar__toggle:hover {
+  background: var(--color-navy-000);
+
+  path {
+    stroke: white;
+  }
+}
