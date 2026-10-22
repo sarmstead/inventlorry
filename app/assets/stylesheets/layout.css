@@ -4,7 +4,13 @@
 }
 
 .layout__content {
-  flex-grow: 1;
+  flex: 1;
   overflow-x: auto;
   padding: var(--spacing-1-half);
+}
+
+@media (min-width: 1200px) {
+  .layout__content {
+    padding: var(--spacing-4);
+  }
 }
