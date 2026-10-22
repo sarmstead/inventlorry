@@ -1,0 +1,24 @@
+.vehicles__index .vehicle__actions {
+  width: 48px;
+}
+
+.vehicles__index .vehicle__menu__button {
+  margin: auto;
+  anchor-name: vehicle-actions;
+}
+
+.vehicles__index .vehicle__menu__popover {
+  position-anchor: vehicle-actions;
+}
+
+.vehicles__index .vehicle__menu__popover__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+}
+
+.vehicles__index .vehicle__menu__popover__inner > .btn,
+.vehicles__index .vehicle__menu__popover__inner > form > .link {
+  text-align: left;
+  width: 100%;
+}

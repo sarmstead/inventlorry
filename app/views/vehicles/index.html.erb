@@ -1,16 +1,31 @@
 <p style="color: green"><%= notice %></p>
 
 <% content_for :title, "Vehicles" %>
+<% content_for :body_class, "vehicles__index" %>
 
-<h1>Vehicles</h1>
+<header class="resource__header">
+  <h1 class="resource__title">Vehicles</h1>
+  <%= link_to "New vehicle", new_vehicle_path, class: "btn btn--primary" %>
+</header>
 
 <div id="vehicles">
-  <% @vehicles.each do |vehicle| %>
-    <%= render vehicle %>
-    <p>
-      <%= link_to "Show this vehicle", vehicle %>
-    </p>
-  <% end %>
+  <div class="resource__table__container">
+    <table class="resource__table">
+      <thead class="resource__table__thead">
+        <tr>
+          <th class="resource__table__th">Name</th>
+          <th class="resource__table__th">Make</th>
+          <th class="resource__table__th">Model</th>
+          <th class="resource__table__th">Trim</th>
+          <th class="resource__table__th">Last updated</th>
+          <th class="resource__table__th vehicle__actions" arial-label="Vehicle actions"></th>
+        </tr>
+      </thead>
+      <tbody class="resource__table__tbody">
+        <% @vehicles.each do |vehicle| %>
+          <%= render vehicle %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
-
-<%= link_to "New vehicle", new_vehicle_path %>
