@@ -1,0 +1,23 @@
+.link {
+  color: var(--color-navy-000);
+  font-weight: 600;
+  padding: 0 var(--spacing-half);
+  margin: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--border-radius-sm);
+  text-decoration: none;
+}
+
+.link:hover {
+  background: hsla(240, 58%, 31%, 0.1);
+}
+
+.link--delete {
+  color: hsl(0, 87%, 37%);
+}
+
+.link--delete:hover {
+  background: hsla(0, 87%, 37%, 0.1);
+}
