@@ -33,5 +33,23 @@
         <%= yield %>
       <section>
     </main>
+
+    <script>
+      if (window.localStorage.getItem("inventlorrySidebar") === "open") {
+        const wrapperTarget = document.querySelector("[data-navigation-target='wrapper']")
+        if (wrapperTarget && !wrapperTarget.classList.contains("sidebar--expanded")) {
+          wrapperTarget.classList.add("sidebar--expanded")
+        }
+
+        const sidebarToggleTooltipTarget = document.querySelector("[data-navigation-target='sidebarToggleTooltip']")
+        const oldSidebarToggleTooltip = document.querySelector('.sidebar__toggle__tooltip__text--open')
+        if (oldSidebarToggleTooltip) {
+          const newSidebarTooltip = document.createElement("p")
+          newSidebarTooltip.innerText = "Close sidebar"
+          newSidebarTooltip.classList.add('sidebar__toggle__tooltip__text--close')
+          sidebarToggleTooltipTarget.replaceChild(newSidebarTooltip, oldSidebarToggleTooltip)
+        }
+      }
+    </script>
   </body>
 </html>
