@@ -188,6 +188,22 @@
   width: 100%;
 }
 
+.resource__attribute__title {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  color: var(--color-neutral-000);
+
+  > svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  > svg > path {
+    stroke: var(--color-neutral-000);
+  }
+}
+
 @media (min-width: 480px) {
   .resource__header {
     flex-direction: row;
