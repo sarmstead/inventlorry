@@ -1,5 +1,8 @@
 * {
   --border-radius-sm: 2px;
+  --button-primary: var(--color-navy-000);
+  --button-primary-hover: hsl(240, 58%, 31%);
+  --button-secondary-hover: hsla(240, 58%, 31%, 0.1);
   --color-form-focus: hsl(215, 94%, 39%);
   --color-navy-000: hsl(240, 58%, 31%);
   --color-neutral-000: hsl(0, 0%, 13%);

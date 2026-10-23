@@ -14,6 +14,12 @@
   width: fit-content;
   cursor: pointer;
   background: var(--color-white);
+  gap: var(--spacing-1);
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
 }
 
 .btn:disabled {
@@ -23,26 +29,40 @@
 }
 
 .btn--primary {
-  background: var(--color-navy-000);
+  background: var(--button-primary);
   color: var(--color-white);
-  border-color: var(--color-navy-000);
+  border-color: var(--button-primary);
 }
 
 .btn--primary:hover:not(:disabled) {
-  background: hsla(240, 58%, 31%);
+  background: var(--button-primary-hover);
 }
 
 .btn--secondary {
-  color: var(--color-navy-000);
-  border-color: var(--color-navy-000);
+  color: var(--button-primary);
+  border-color: var(--button-primary);
 }
 
 .btn--secondary:hover:not(:disabled) {
-  background: hsla(240, 58%, 31%, 0.1);
+  background: var(--button-secondary-hover);
 }
 
 .btn--icon {
   width: 32px;
   height: 32px;
   padding: var(--spacing-half);
+}
+
+.btn--icon:hover:not(:disabled) {
+  background: var(--button-secondary-hover);
+}
+
+.btn--ghost {
+  > svg > path {
+    stroke: var(--button-primary);
+  }
+}
+
+.btn--ghost:hover:not(:disabled) {
+  background: var(--button-secondary-hover);
 }
