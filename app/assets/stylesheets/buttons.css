@@ -13,11 +13,32 @@
   letter-spacing: 0.03125ch;
   width: fit-content;
   cursor: pointer;
+  background: var(--color-white);
+}
+
+.btn:disabled {
+  background: var(--color-neutral-700);
+  border-color: var(--color-neutral-700);
+  cursor: not-allowed;
 }
 
 .btn--primary {
   background: var(--color-navy-000);
   color: var(--color-white);
+  border-color: var(--color-navy-000);
+}
+
+.btn--primary:hover:not(:disabled) {
+  background: hsla(240, 58%, 31%);
+}
+
+.btn--secondary {
+  color: var(--color-navy-000);
+  border-color: var(--color-navy-000);
+}
+
+.btn--secondary:hover:not(:disabled) {
+  background: hsla(240, 58%, 31%, 0.1);
 }
 
 .btn--icon {
