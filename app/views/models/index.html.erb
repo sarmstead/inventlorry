@@ -1,16 +1,28 @@
 <p style="color: green"><%= notice %></p>
 
 <% content_for :title, "Models" %>
+<% content_for :body_class, "resource__index" %>
 
-<h1>Models</h1>
+<header class="resource__header">
+  <h1 class="resource__title">Models</h1>
+  <%= link_to "New model", new_model_path, class: "btn btn--primary" %>
+</header>
 
 <div id="models">
-  <% @models.each do |model| %>
-    <%= render model %>
-    <p>
-      <%= link_to "Show this model", model %>
-    </p>
-  <% end %>
+  <div class="resource__table__container">
+    <table class="resource__table">
+      <thead class="resource__table__thead">
+        <tr>
+          <th class="resource__table__th">Name</th>
+          <th class="resource__table__th">Last updated</th>
+          <th class="resource__table__th resource__actions" arial-label="Model actions"></th>
+        </tr>
+      </thead>
+      <tbody class="resource__table__tbody">
+        <% @models.each do |model| %>
+          <%= render model %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
-
-<%= link_to "New model", new_model_path %>

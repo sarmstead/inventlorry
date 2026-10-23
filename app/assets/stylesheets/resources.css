@@ -163,6 +163,31 @@
   gap: var(--spacing-2);
 }
 
+.resource__index .resource__actions {
+  width: 48px;
+}
+
+.resource__index .resource__menu__button {
+  margin: auto;
+  anchor-name: resource-actions;
+}
+
+.resource__index .resource__menu__popover {
+  position-anchor: resource-actions;
+}
+
+.resource__index .resource__menu__popover__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+}
+
+.resource__index .resource__menu__popover__inner > .btn,
+.resource__index .resource__menu__popover__inner > form > .link {
+  text-align: left;
+  width: 100%;
+}
+
 @media (min-width: 480px) {
   .resource__header {
     flex-direction: row;
