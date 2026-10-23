@@ -1,16 +1,28 @@
 <p style="color: green"><%= notice %></p>
 
 <% content_for :title, "Makes" %>
+<% content_for :body_class, "resource__index" %>
 
-<h1>Makes</h1>
+<header class="resource__header">
+  <h1 class="resource__title">Makes</h1>
+  <%= link_to "New make", new_make_path, class: "btn btn--primary" %>
+</header>
 
 <div id="makes">
-  <% @makes.each do |make| %>
-    <%= render make %>
-    <p>
-      <%= link_to "Show this make", make %>
-    </p>
-  <% end %>
+  <div class="resource__table__container">
+    <table class="resource__table">
+      <thead class="resource__table__thead">
+        <tr>
+          <th class="resource__table__th">Name</th>
+          <th class="resource__table__th">Last updated</th>
+          <th class="resource__table__th resource__actions" arial-label="Make actions"></th>
+        </tr>
+      </thead>
+      <tbody class="resource__table__tbody">
+        <% @makes.each do |make| %>
+          <%= render make %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
-
-<%= link_to "New make", new_make_path %>
