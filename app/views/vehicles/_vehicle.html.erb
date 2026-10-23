@@ -1,5 +1,5 @@
 <tr id="<%= dom_id vehicle %>">
-  <td class="resource__table__td" title="<%= vehicle.name %>"><%= vehicle.name %></td>
+  <td class="resource__table__td" title="<%= vehicle.name %>"><%= link_to vehicle.name, vehicle %></td>
   <td class="resource__table__td"><%= vehicle.make.name %></td>
   <td class="resource__table__td"><%= vehicle.model.name %></td>
   <td class="resource__table__td"><%= vehicle.trim.name %></td>
