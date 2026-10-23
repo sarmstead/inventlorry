@@ -1,11 +1,16 @@
 <% content_for :title, "New vehicle" %>
 
-<h1>New vehicle</h1>
+<nav class="resource__header">
+  <%= link_to vehicles_path, class: "link link--breadcrumb" do %>
+    <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span>All vehicles</span>
+  <% end %>
+</nav>
+<h1 class="resource__title">Add a vehicle</h1>
 
 <%= render "form", vehicle: @vehicle %>
 
 <br>
 
-<div>
-  <%= link_to "Back to vehicles", vehicles_path %>
-</div>

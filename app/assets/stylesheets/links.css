@@ -21,3 +21,31 @@
 .link--delete:hover {
   background: hsla(0, 87%, 37%, 0.1);
 }
+
+.link--breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-half);
+  width: fit-content;
+  color: var(--color-neutral-300);
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  path {
+    stroke: var(--color-neutral-300);
+  }
+
+  > span {
+    font-family: var(--font-family-secondary);
+    text-transform: uppercase;
+    color: var(--color-neutral-300);
+  }
+}
+
+.link--breadcrumb:hover {
+  background: none;
+  text-decoration: underline;
+}

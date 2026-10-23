@@ -1,4 +1,4 @@
-<%= form_with(model: vehicle, data: { controller: "vehicle" }) do |form| %>
+<%= form_with(model: vehicle, class: "resource__form", data: { controller: "vehicle" }) do |form| %>
   <% if vehicle.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(vehicle.errors.count, "error") %> prohibited this vehicle from being saved:</h2>
@@ -11,28 +11,30 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="resource__form__field">
+    <%= form.label :name, class: "resource__form__label" %>
+    <%= form.text_field :name, class: "resource__form__input" %>
   </div>
 
-  <div>
-    <%= form.label :make_id, style: "display: block" %>
-    <%= form.select :make_id, [["-- select make --", -1]].concat(Make.with_models.pluck(:name, :id)), {}, { data: { vehicle_target: "make", action: "change->vehicle#selectMake" }} %>
+  <div class="resource__form__field-group">
+    <div class="resource__form__field">
+      <%= form.label :make_id, class: "resource__form__label" %>
+      <%= form.select :make_id, [["-- select make --", -1]].concat(Make.with_models.pluck(:name, :id)), {}, { class: "resource__form__select", data: { vehicle_target: "make", action: "change->vehicle#selectMake" }} %>
+    </div>
+
+    <div class="resource__form__field">
+      <%= form.label :model_id, class: "resource__form__label" %>
+      <%= form.select :model_id, [["-- select model --", -1]], {}, { class: "resource__form__select", disabled: true, data: { vehicle_target: "model", action: "change->vehicle#selectModel" } } %>
+    </div>
+
+    <div class="resource__form__field">
+      <%= form.label :trim_id, class: "resource__form__label" %>
+      <%= form.select :trim_id, [["-- select trim --", -1]], {}, { class: "resource__form__select", disabled: true, data: { vehicle_target: "trim", action: "change->vehicle#selectTrim" } } %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :model_id, style: "display: block" %>
-    <%= form.select :model_id, [["-- select model --", -1]], {}, { disabled: true, data: { vehicle_target: "model", action: "change->vehicle#selectModel" } } %>
-  </div>
-
-  <div>
-    <%= form.label :trim_id, style: "display: block" %>
-    <%= form.select :trim_id, [["-- select trim --", -1]], {}, { disabled: true, data: { vehicle_target: "trim", action: "change->vehicle#selectTrim" } } %>
-  </div>
-
-  <div>
-    <%= form.submit "Create vehicle", { disabled: true, data: { vehicle_target: "create" }} %>
-    <button>Reset</button>
+  <div class="resource__form__actions resource__form__actions--right">
+    <button class="btn btn--secondary">Reset</button>
+    <%= form.submit "Create vehicle", { class: "btn btn--primary", disabled: true, data: { vehicle_target: "create" }} %>
   </div>
 <% end %>

@@ -1,8 +1,11 @@
 * {
   --border-radius-sm: 2px;
+  --color-form-focus: hsl(215, 94%, 39%);
   --color-navy-000: hsl(240, 58%, 31%);
   --color-neutral-000: hsl(0, 0%, 13%);
   --color-neutral-900: hsl(0, 0%, 90%);
+  --color-neutral-700: hsl(0, 0%, 70%);
+  --color-neutral-300: hsl(0, 0%, 30%);
   --color-surface-primary: hsl(0, 0%, 100%);
   --color-surface-secondary: hsl(0, 0%, 98%);
   --color-tooltip: hsla(0, 0%, 13%, 0.95);
