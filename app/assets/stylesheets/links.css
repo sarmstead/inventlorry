@@ -11,15 +11,15 @@
 }
 
 .link:hover {
-  background: hsla(240, 58%, 31%, 0.1);
+  background: var(--button-secondary-hover);
 }
 
 .link--delete {
-  color: hsl(0, 87%, 37%);
+  color: var(--button-delete);
 }
 
 .link--delete:hover {
-  background: hsla(0, 87%, 37%, 0.1);
+  background: var(--button-delete-hover);
 }
 
 .link--breadcrumb {

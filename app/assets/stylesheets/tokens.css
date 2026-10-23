@@ -1,5 +1,7 @@
 * {
   --border-radius-sm: 2px;
+  --button-delete: hsl(0, 87%, 37%);
+  --button-delete-hover: hsla(0, 87%, 37%, 0.1);
   --button-primary: var(--color-navy-000);
   --button-primary-hover: hsl(240, 58%, 31%);
   --button-secondary-hover: hsla(240, 58%, 31%, 0.1);

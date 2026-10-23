@@ -66,3 +66,12 @@
 .btn--ghost:hover:not(:disabled) {
   background: var(--button-secondary-hover);
 }
+
+.btn--delete {
+  color: var(--button-delete);
+  border-color: var(--button-delete);
+}
+
+.btn--delete:hover:not(:disabled) {
+  background: var(--button-delete-hover);
+}
