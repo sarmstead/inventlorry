@@ -20,12 +20,12 @@ model_international_lt = Model.find_or_create_by!(name: "International LT", make
 model_international_rh = Model.find_or_create_by!(name: "International RH", make: make_international)
 
 # Trims
-trim_international_lt_classic = Trim.find_or_create_by!(name: "Classic (LT)", model: model_international_lt)
-trim_international_lt_diamond = Trim.find_or_create_by!(name: "Diamond (LT)", model: model_international_lt)
-trim_international_lt_diamond_elite = Trim.find_or_create_by!(name: "Diamond Elite (LT)", model: model_international_lt)
-trim_international_rh_classic = Trim.find_or_create_by!(name: "Classic (RH)", model: model_international_rh)
-trim_international_rh_diamond = Trim.find_or_create_by!(name: "Diamond (RH)", model: model_international_rh)
-trim_international_rh_diamond_elite = Trim.find_or_create_by!(name: "Diamond Elite (RH)", model: model_international_rh)
+trim_international_lt_classic = Trim.find_or_create_by!(name: "Classic", model: model_international_lt)
+trim_international_lt_diamond = Trim.find_or_create_by!(name: "Diamond", model: model_international_lt)
+trim_international_lt_diamond_elite = Trim.find_or_create_by!(name: "Diamond Elite", model: model_international_lt)
+trim_international_rh_classic = Trim.find_or_create_by!(name: "Classic", model: model_international_rh)
+trim_international_rh_diamond = Trim.find_or_create_by!(name: "Diamond", model: model_international_rh)
+trim_international_rh_diamond_elite = Trim.find_or_create_by!(name: "Diamond Elite", model: model_international_rh)
 
 # Vehicles
 Vehicle.find_or_create_by!(name: "The Inventlorry", make: make_international, model: model_international_lt, trim: trim_international_lt_classic)
