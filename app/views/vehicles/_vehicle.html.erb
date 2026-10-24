@@ -1,8 +1,8 @@
 <tr id="<%= dom_id vehicle %>">
-  <td class="resource__table__td" title="<%= vehicle.name %>"><%= link_to vehicle.name, vehicle %></td>
-  <td class="resource__table__td"><%= vehicle.make.name %></td>
-  <td class="resource__table__td"><%= vehicle.model.name %></td>
-  <td class="resource__table__td"><%= vehicle.trim.name %></td>
+  <td class="resource__table__td" title="<%= vehicle&.name %>"><%= link_to vehicle&.name, vehicle %></td>
+  <td class="resource__table__td"><%= vehicle&.make&.name %></td>
+  <td class="resource__table__td"><%= vehicle&.model&.name %></td>
+  <td class="resource__table__td"><%= vehicle&.trim&.name %></td>
   <td class="resource__table__td"><%= vehicle.updated_at.strftime("%b %-d, %Y") %></td>
   <td class="resource__table__td resource__actions">
     <button popovertarget="<%= dom_id vehicle %>__menu" class="btn btn--icon resource__menu__button">
