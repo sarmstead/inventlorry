@@ -1,0 +1,27 @@
+.toast {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-half);
+  border: 1px solid transparent;
+  border-radius: var(--border-radius-sm);
+  padding: var(--spacing-1);
+  margin-bottom: var(--spacing-3);
+
+  > svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.toast--notice {
+  background: hsla(120, 79%, 19%, 0.05);
+  border-color: hsl(120, 79%, 19%);
+
+  > p {
+    color: hsl(120, 79%, 19%);
+  }
+
+  > svg > path {
+    stroke: hsl(120, 79%, 19%);
+  }
+}
