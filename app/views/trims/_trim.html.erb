@@ -1,5 +1,6 @@
 <tr id="<%= dom_id trim %>">
   <td class="resource__table__td" title="<%= trim.name %>"><%= link_to trim.name, trim %></td>
+  <td class="resource__table__td" title="<%= trim&.model&.name %>"><%= trim&.model&.name %></td>
   <td class="resource__table__td"><%= trim.updated_at.strftime("%b %-d, %Y") %></td>
   <td class="resource__table__td resource__actions">
     <button popovertarget="<%= dom_id trim %>__menu" class="btn btn--icon resource__menu__button">
