@@ -8,22 +8,26 @@
   <%= link_to "New trim", new_trim_path, class: "btn btn--primary" %>
 </header>
 
-<div id="trims">
-  <div class="resource__table__container">
-    <table class="resource__table">
-      <thead class="resource__table__thead">
-        <tr>
-          <th class="resource__table__th">Name</th>
-          <th class="resource__table__th">Model</th>
-          <th class="resource__table__th">Last updated</th>
-          <th class="resource__table__th resource__actions" arial-label="Trim actions"></th>
-        </tr>
-      </thead>
-      <tbody class="resource__table__tbody">
-        <% @trims.each do |trim| %>
-          <%= render trim %>
-        <% end %>
-      </tbody>
-    </table>
+<% if @trims.any? %>
+  <div id="trims">
+    <div class="resource__table__container">
+      <table class="resource__table">
+        <thead class="resource__table__thead">
+          <tr>
+            <th class="resource__table__th">Name</th>
+            <th class="resource__table__th">Model</th>
+            <th class="resource__table__th">Last updated</th>
+            <th class="resource__table__th resource__actions" arial-label="Trim actions"></th>
+          </tr>
+        </thead>
+        <tbody class="resource__table__tbody">
+          <% @trims.each do |trim| %>
+            <%= render trim %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
+<% else %>
+  <%= render "shared/empty", resource: Trim %>
+<% end %>

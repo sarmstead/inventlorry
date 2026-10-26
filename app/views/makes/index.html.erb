@@ -8,21 +8,25 @@
   <%= link_to "New make", new_make_path, class: "btn btn--primary" %>
 </header>
 
-<div id="makes">
-  <div class="resource__table__container">
-    <table class="resource__table">
-      <thead class="resource__table__thead">
-        <tr>
-          <th class="resource__table__th">Name</th>
-          <th class="resource__table__th">Last updated</th>
-          <th class="resource__table__th resource__actions" arial-label="Make actions"></th>
-        </tr>
-      </thead>
-      <tbody class="resource__table__tbody">
-        <% @makes.each do |make| %>
-          <%= render make %>
-        <% end %>
-      </tbody>
-    </table>
+<% if @makes.any? %>
+  <div id="makes">
+    <div class="resource__table__container">
+      <table class="resource__table">
+        <thead class="resource__table__thead">
+          <tr>
+            <th class="resource__table__th">Name</th>
+            <th class="resource__table__th">Last updated</th>
+            <th class="resource__table__th resource__actions" arial-label="Make actions"></th>
+          </tr>
+        </thead>
+        <tbody class="resource__table__tbody">
+          <% @makes.each do |make| %>
+            <%= render make %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
+<% else %>
+  <%= render "shared/empty", resource: Make %>
+<% end %>

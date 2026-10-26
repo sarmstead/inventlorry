@@ -8,21 +8,25 @@
   <%= link_to "New model", new_model_path, class: "btn btn--primary" %>
 </header>
 
-<div id="models">
-  <div class="resource__table__container">
-    <table class="resource__table">
-      <thead class="resource__table__thead">
-        <tr>
-          <th class="resource__table__th">Name</th>
-          <th class="resource__table__th">Last updated</th>
-          <th class="resource__table__th resource__actions" arial-label="Model actions"></th>
-        </tr>
-      </thead>
-      <tbody class="resource__table__tbody">
-        <% @models.each do |model| %>
-          <%= render model %>
-        <% end %>
-      </tbody>
-    </table>
+<% if @models.any? %>
+  <div id="models">
+    <div class="resource__table__container">
+      <table class="resource__table">
+        <thead class="resource__table__thead">
+          <tr>
+            <th class="resource__table__th">Name</th>
+            <th class="resource__table__th">Last updated</th>
+            <th class="resource__table__th resource__actions" arial-label="Model actions"></th>
+          </tr>
+        </thead>
+        <tbody class="resource__table__tbody">
+          <% @models.each do |model| %>
+            <%= render model %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
+<% else %>
+  <%= render "shared/empty", resource: Model %>
+<% end %>

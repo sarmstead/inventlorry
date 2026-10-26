@@ -8,24 +8,28 @@
   <%= link_to "New vehicle", new_vehicle_path, class: "btn btn--primary" %>
 </header>
 
-<div id="vehicles">
-  <div class="resource__table__container">
-    <table class="resource__table">
-      <thead class="resource__table__thead">
-        <tr>
-          <th class="resource__table__th">Name</th>
-          <th class="resource__table__th">Make</th>
-          <th class="resource__table__th">Model</th>
-          <th class="resource__table__th">Trim</th>
-          <th class="resource__table__th">Last updated</th>
-          <th class="resource__table__th resource__actions" arial-label="Vehicle actions"></th>
-        </tr>
-      </thead>
-      <tbody class="resource__table__tbody">
-        <% @vehicles.each do |vehicle| %>
-          <%= render vehicle %>
-        <% end %>
-      </tbody>
-    </table>
+<% if @vehicles.any? %>
+  <div id="vehicles">
+    <div class="resource__table__container">
+      <table class="resource__table">
+        <thead class="resource__table__thead">
+          <tr>
+            <th class="resource__table__th">Name</th>
+            <th class="resource__table__th">Make</th>
+            <th class="resource__table__th">Model</th>
+            <th class="resource__table__th">Trim</th>
+            <th class="resource__table__th">Last updated</th>
+            <th class="resource__table__th resource__actions" arial-label="Vehicle actions"></th>
+          </tr>
+        </thead>
+        <tbody class="resource__table__tbody">
+          <% @vehicles.each do |vehicle| %>
+            <%= render vehicle %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
+<% else %>
+  <%= render "shared/empty", resource: Vehicle %>
+<% end %>
