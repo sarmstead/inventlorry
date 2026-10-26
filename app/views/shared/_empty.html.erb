@@ -1,0 +1,3 @@
+<section class="resource__empty">
+  No <%= resource.model_name.plural %> found. <%= link_to "Add a #{resource.model_name.singular}", public_send("new_#{resource.model_name.singular_route_key}_path") %>?
+</section>

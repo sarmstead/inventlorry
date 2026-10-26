@@ -204,6 +204,12 @@
   }
 }
 
+.resource__empty {
+  background: var(--color-surface-secondary);
+  border-radius: var(--border-radius-sm);
+  padding: var(--spacing-3);
+}
+
 @media (min-width: 480px) {
   .resource__header {
     flex-direction: row;
