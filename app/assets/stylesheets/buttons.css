@@ -30,7 +30,7 @@
 
 .btn--primary {
   background: var(--button-primary);
-  color: var(--color-white);
+  color: var(--color-static-white);
   border-color: var(--button-primary);
 }
 
@@ -58,8 +58,10 @@
 }
 
 .btn--ghost {
+  color: var(--button-ghost);
+
   > svg > path {
-    stroke: var(--button-primary);
+    stroke: var(--button-ghost);
   }
 }
 
