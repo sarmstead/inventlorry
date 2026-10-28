@@ -8,7 +8,7 @@
   overflow-x: auto;
   padding: var(--spacing-1-half);
   max-width: 1200px;
-  margin: var(--spacing-4) auto 0 auto;
+  margin: var(--spacing-2) auto 0 auto;
 }
 
 @media (min-width: 1200px) {

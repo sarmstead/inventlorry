@@ -30,6 +30,7 @@
     <main class="layout__main<%= " #{content_for(:body_class)}" if content_for(:body_class) %>">
       <%= render "layouts/sidebar/navigation" %>
       <section class="layout__content">
+        <%= render "layouts/color_mode/toggle" %>
         <%= yield %>
       <section>
     </main>
@@ -49,6 +50,18 @@
           newSidebarTooltip.classList.add('sidebar__toggle__tooltip__text--close')
           sidebarToggleTooltipTarget.replaceChild(newSidebarTooltip, oldSidebarToggleTooltip)
         }
+      }
+
+      var colorModeSelection = window.localStorage.getItem("inventlorryColorMode")
+      if (colorModeSelection) {
+        document.documentElement.classList.remove(
+          "system-mode",
+          "light-mode",
+          "dark-mode",
+        )
+        document.documentElement.classList.add(colorModeSelection)
+        const colorModeButton = document.querySelector(`[data-color-mode-selection-param='${colorModeSelection}']`)
+        colorModeButton.classList.add("color-mode__switch--selected")
       }
     </script>
   </body>
