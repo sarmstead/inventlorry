@@ -1,6 +1,7 @@
-* {
+:root {
   font-family: var(--font-family-primary);
   color: var(--color-neutral-000);
+  background: var(--color-surface-primary);
 }
 
 a {
