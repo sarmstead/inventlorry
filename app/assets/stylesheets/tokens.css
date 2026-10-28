@@ -1,20 +1,34 @@
-* {
+:root {
+  color-scheme: light dark;
+
   --border-radius-sm: 2px;
-  --button-delete: hsl(0, 87%, 37%);
+  --button-delete: light-dark(hsl(0, 87%, 37%), hsl(0, 98%, 76%));
   --button-delete-hover: hsla(0, 87%, 37%, 0.1);
-  --button-primary: var(--color-navy-000);
+  --button-ghost: light-dark(var(--color-navy-000), var(--color-static-white));
+  --button-primary: light-dark(var(--color-navy-000), hsl(240, 56%, 28%));
   --button-primary-hover: hsl(240, 58%, 31%);
-  --button-secondary-hover: hsla(240, 58%, 31%, 0.1);
-  --color-form-focus: hsl(215, 94%, 39%);
-  --color-navy-000: hsl(240, 58%, 31%);
-  --color-neutral-000: hsl(0, 0%, 13%);
-  --color-neutral-900: hsl(0, 0%, 90%);
-  --color-neutral-700: hsl(0, 0%, 70%);
-  --color-neutral-300: hsl(0, 0%, 30%);
-  --color-surface-primary: hsl(0, 0%, 100%);
-  --color-surface-secondary: hsl(0, 0%, 98%);
-  --color-tooltip: hsla(0, 0%, 13%, 0.95);
-  --color-white: hsl(0, 0%, 100%);
+  --button-secondary-hover: light-dark(
+    hsla(240, 58%, 31%, 0.1),
+    hsla(240, 56%, 28%, 0.4)
+  );
+  --color-form-focus: light-dark(hsl(215, 94%, 39%), hsl(215, 100%, 66%));
+  --color-logo-primary: var(--color-navy-000);
+  --color-logo-secondary: var(--color-white);
+  --color-navy-000: light-dark(hsl(240, 58%, 31%), hsl(240, 58%, 95%));
+  --color-neutral-000: light-dark(hsl(0, 0%, 13%), hsl(0, 0%, 92%));
+  --color-neutral-900: light-dark(hsl(0, 0%, 90%), hsl(240, 56%, 28%));
+  --color-neutral-700: light-dark(hsl(0, 0%, 70%), hsl(240, 56%, 28%));
+  --color-neutral-300: light-dark(hsl(0, 0%, 30%), hsl(0, 0%, 90%));
+  --color-success-primary: light-dark(hsl(120, 79%, 19%), hsl(120, 59%, 38%));
+  --color-success-secondary: light-dark(
+    hsla(120, 79%, 19%, 0.05),
+    hsla(120, 79%, 19%, 0.1)
+  );
+  --color-surface-primary: light-dark(hsl(0, 0%, 100%), hsl(240, 68%, 7%));
+  --color-surface-secondary: light-dark(hsl(0, 0%, 98%), hsl(240, 68%, 10%));
+  --color-tooltip: light-dark(hsla(0, 0%, 13%, 0.95), hsla(0, 0%, 95%, 0.95));
+  --color-white: light-dark(hsl(0, 0%, 100%), hsl(240, 68%, 10%));
+  --color-static-white: hsl(0, 0%, 100%);
   --font-family-primary: "Inter", sans-serif;
   --font-family-secondary: "Source Code Pro", monospace;
   --shadow-popover: -8px 8px 16px 0px hsla(0, 0%, 0%, 0.1);
@@ -24,4 +38,12 @@
   --spacing-2: 16px;
   --spacing-3: 24px;
   --spacing-4: 32px;
+}
+
+:root.dark-mode {
+  color-scheme: only dark;
+}
+
+:root.light-mode {
+  color-scheme: only light;
 }
