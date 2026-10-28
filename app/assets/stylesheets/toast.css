@@ -14,14 +14,14 @@
 }
 
 .toast--notice {
-  background: hsla(120, 79%, 19%, 0.05);
-  border-color: hsl(120, 79%, 19%);
+  background: var(--color-success-secondary);
+  border-color: var(--color-success-primary);
 
   > p {
-    color: hsl(120, 79%, 19%);
+    color: var(--color-success-primary);
   }
 
   > svg > path {
-    stroke: hsl(120, 79%, 19%);
+    stroke: var(--color-success-primary);
   }
 }
