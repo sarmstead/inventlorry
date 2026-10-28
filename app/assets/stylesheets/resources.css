@@ -83,14 +83,28 @@
   min-height: 40px;
   border: 1px solid var(--color-neutral-700);
   padding: var(--spacing-half) var(--spacing-1);
+  background: var( --color-surface-secondary);
+}
+
+.resource__form__field--select {
+  position: relative;
+}
+
+.resource__form__field--select::after {
+  content: "";
+  height: 16px;
+  width: 16px;
+  background: var(--color-neutral-000);
+  mask-image: url("/icons/chevron--down.svg");
+  mask-position: center;
+  mask-repeat: no-repeat;
+  position: absolute;
+  bottom: 12px;
+  right: 8px;
 }
 
 .resource__form__select {
   appearance: none;
-  background-image: url("/icons/chevron--down.svg");
-  background-repeat: no-repeat;
-  background-position: right var(--spacing-1) center;
-  background-size: 16px;
   padding-right: var(--spacing-4);
 }
 

@@ -17,17 +17,17 @@
   </div>
 
   <div class="resource__form__field-group">
-    <div class="resource__form__field">
+    <div class="resource__form__field resource__form__field--select">
       <%= form.label :make_id, class: "resource__form__label" %>
       <%= form.select :make_id, [["-- select make --", -1]].concat(Make.with_models.pluck(:name, :id)), {}, { class: "resource__form__select", data: { vehicle_target: "make", action: "change->vehicle#selectMake" }} %>
     </div>
 
-    <div class="resource__form__field">
+    <div class="resource__form__field resource__form__field--select">
       <%= form.label :model_id, class: "resource__form__label" %>
       <%= form.select :model_id, [["-- select model --", -1]], {}, { class: "resource__form__select", disabled: true, data: { vehicle_target: "model", action: "change->vehicle#selectModel" } } %>
     </div>
 
-    <div class="resource__form__field">
+    <div class="resource__form__field resource__form__field--select">
       <%= form.label :trim_id, class: "resource__form__label" %>
       <%= form.select :trim_id, [["-- select trim --", -1]], {}, { class: "resource__form__select", disabled: true, data: { vehicle_target: "trim", action: "change->vehicle#selectTrim" } } %>
     </div>
