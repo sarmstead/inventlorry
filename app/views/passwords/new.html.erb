@@ -1,8 +1,14 @@
-<h1>Forgot your password?</h1>
+<header class="resource__header">
+  <h1 class="resource__title">Forgot your password?</h1>
+</header>
 
-<%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
+<%= render "shared/alert" %>
 
-<%= form_with url: passwords_path do |form| %>
-  <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address] %><br>
-  <%= form.submit "Email reset instructions" %>
+<%= form_with url: passwords_path, class: "resource__form" do |form| %>
+  <div class="resource__form__field">
+    <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address], class: "resource__form__input" %>
+  </div>
+  <div class="resource__form__actions">
+    <%= form.submit "Email reset instructions", class: "btn btn--primary" %>
+  </div>
 <% end %>
