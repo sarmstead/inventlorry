@@ -1,11 +1,5 @@
 .color-mode {
   display: flex;
-  align-items: center;
-  margin-bottom: 56px;
-}
-
-.color-mode__inner {
-  display: flex;
   justify-content: center;
   align-items: center;
   gap: var(--spacing-1);
@@ -35,11 +29,5 @@
 
   svg path {
     stroke: var(--color-static-white);
-  }
-}
-
-@media (min-width: 720px) {
-  .color-mode {
-    justify-content: flex-end;
   }
 }

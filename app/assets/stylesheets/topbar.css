@@ -1,0 +1,17 @@
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  margin-bottom: 96px;
+  justify-content: flex-end;
+}
+
+.topbar__logout__title {
+  display: none;
+}
+
+@media (min-width: 720px) {
+  .topbar__logout__title {
+    display: inherit;
+  }
+}
