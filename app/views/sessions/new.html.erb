@@ -1,11 +1,24 @@
-<%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
-<%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
+<section class="toast__stack">
+  <%= render "shared/flash_alert" %>
+  <%= render "shared/flash_notice" %>
+</section>
 
-<%= form_with url: session_path do |form| %>
-  <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address] %><br>
-  <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72 %><br>
-  <%= form.submit "Sign in" %>
+<header class="resource__header">
+  <h1 class="resource__title">Login</h1>
+</header>
+
+<%= form_with url: session_path, class: "resource__form" do |form| %>
+  <div class="resource__form__field">
+    <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address], class: "resource__form__input" %>
+  </div>
+  <div class="resource__form__field">
+    <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72, class: "resource__form__input" %>
+  </div>
+  <div class="resource__form__actions">
+    <%= form.submit "Sign in", class: "btn btn--primary" %>
+  </div>
 <% end %>
+
 <br>
 
 <%= link_to "Forgot password?", new_password_path %>

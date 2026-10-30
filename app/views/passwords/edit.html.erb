@@ -2,7 +2,7 @@
   <h1 class="resource__title">Update your password</h1>
 </header>
 
-<%= render "shared/alert" %>
+<%= render "shared/flash_alert" %>
 
 <%= form_with url: password_path(params[:token]), method: :put, class: "resource__form" do |form| %>
   <div class="resource__form__field">
