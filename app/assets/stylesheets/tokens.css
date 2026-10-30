@@ -15,6 +15,7 @@
   --color-logo-primary: var(--color-navy-000);
   --color-logo-secondary: var(--color-white);
   --color-navy-000: light-dark(hsl(240, 58%, 31%), hsl(240, 58%, 95%));
+  --color-static-navy-000: hsl(240, 58%, 31%);
   --color-neutral-000: light-dark(hsl(0, 0%, 13%), hsl(0, 0%, 92%));
   --color-neutral-900: light-dark(hsl(0, 0%, 90%), hsl(240, 56%, 28%));
   --color-neutral-700: light-dark(hsl(0, 0%, 70%), hsl(240, 56%, 28%));
