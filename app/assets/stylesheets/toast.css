@@ -25,3 +25,16 @@
     stroke: var(--color-success-primary);
   }
 }
+
+.toast--alert {
+  background: var(--color-error-secondary);
+  border-color: var(--color-error-primary);
+
+  > p {
+    color: var(--color-error-primary);
+  }
+
+  > svg > path {
+    stroke: var(--color-error-primary);
+  }
+}
