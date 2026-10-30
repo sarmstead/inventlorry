@@ -3,6 +3,8 @@ require "test_helper"
 class VehiclesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @vehicle = vehicles(:one)
+    @user = users(:one)
+    sign_in_as(@user)
   end
 
   test "should get index" do
@@ -44,5 +46,9 @@ class VehiclesControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to vehicles_url
+  end
+
+  def teardown
+    sign_out
   end
 end

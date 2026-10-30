@@ -3,6 +3,8 @@ require "test_helper"
 class ModelsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @model = models(:one)
+    @user = users(:one)
+    sign_in_as(@user)
   end
 
   test "should get index" do
@@ -44,5 +46,9 @@ class ModelsControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to models_url
+  end
+
+  def teardown
+    sign_out
   end
 end

@@ -3,6 +3,8 @@ require "test_helper"
 class MakesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @make = makes(:one)
+    @user = users(:one)
+    sign_in_as(@user)
   end
 
   test "should get index" do
@@ -44,5 +46,9 @@ class MakesControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to makes_url
+  end
+
+  def teardown
+    sign_out
   end
 end
