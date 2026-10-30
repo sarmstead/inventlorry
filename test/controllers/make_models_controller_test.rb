@@ -3,6 +3,8 @@ require "test_helper"
 class MakeModelsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @make = makes(:one)
+    @user = users(:one)
+    sign_in_as(@user)
   end
 
   test "returns JSON array of models for given make" do
@@ -22,5 +24,9 @@ class MakeModelsControllerTest < ActionDispatch::IntegrationTest
 
     payload = JSON.parse(response.body)
     assert payload === []
+  end
+
+  def teardown
+    sign_out
   end
 end

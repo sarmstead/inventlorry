@@ -30,9 +30,9 @@
     <main class="layout__main<%= " #{content_for(:body_class)}" if content_for(:body_class) %>">
       <%= render "layouts/sidebar/navigation" %>
       <section class="layout__content">
-        <%= render "layouts/color_mode/toggle" %>
+        <%= render "layouts/topbar/row" %>
         <%= yield %>
-      <section>
+      </section>
     </main>
 
     <script>

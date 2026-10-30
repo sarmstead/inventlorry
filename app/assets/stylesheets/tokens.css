@@ -11,10 +11,16 @@
     hsla(240, 58%, 31%, 0.1),
     hsla(240, 56%, 28%, 0.4)
   );
+  --color-error-primary: light-dark(hsl(0, 87%, 37%), hsl(0, 71%, 64%));
+  --color-error-secondary: light-dark(
+    hsla(0, 87%, 37%, 0.05),
+    hsla(0, 87%, 37%, 0.1)
+  );
   --color-form-focus: light-dark(hsl(215, 94%, 39%), hsl(215, 100%, 66%));
   --color-logo-primary: var(--color-navy-000);
   --color-logo-secondary: var(--color-white);
   --color-navy-000: light-dark(hsl(240, 58%, 31%), hsl(240, 58%, 95%));
+  --color-static-navy-000: hsl(240, 58%, 31%);
   --color-neutral-000: light-dark(hsl(0, 0%, 13%), hsl(0, 0%, 92%));
   --color-neutral-900: light-dark(hsl(0, 0%, 90%), hsl(240, 56%, 28%));
   --color-neutral-700: light-dark(hsl(0, 0%, 70%), hsl(240, 56%, 28%));

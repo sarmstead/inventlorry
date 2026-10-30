@@ -3,6 +3,8 @@ require "test_helper"
 class ModelTrimsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @model = models(:one)
+    @user = users(:one)
+    sign_in_as(@user)
   end
 
   test "returns JSON array of trims for given model" do
@@ -22,5 +24,9 @@ class ModelTrimsControllerTest < ActionDispatch::IntegrationTest
 
     payload = JSON.parse(response.body)
     assert payload === []
+  end
+
+  def teardown
+    sign_out
   end
 end

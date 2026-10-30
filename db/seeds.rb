@@ -8,6 +8,13 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+# Users
+base_password = Rails.application.credentials.dig(:user, :base, :password)
+scooter = User.find_or_initialize_by(first_name: "Scooter", last_name: "Tooter", email_address: "scootertooter@inventlorry.com")
+scooter.password = base_password
+scooter.save!
+puts "Created #{scooter.full_name}'s account" if scooter.valid?
+
 # Makes
 make_international = Make.find_or_create_by!(name: "International")
 make_kenworth = Make.find_or_create_by!(name: "Kenworth")
