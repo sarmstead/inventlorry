@@ -19,7 +19,7 @@ class TrimsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create trim" do
     assert_difference("Trim.count") do
-      post trims_url, params: { trim: { model_id: @trim.model_id, name: @trim.name } }
+      post trims_url, params: { trim: { model_id: @trim.model_id, name: @trim.name, organization_id: @trim.organization_id } }
     end
 
     assert_redirected_to trim_url(Trim.last)

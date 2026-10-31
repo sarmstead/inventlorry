@@ -21,6 +21,7 @@ class VehiclesController < ApplicationController
 
   # POST /vehicles or /vehicles.json
   def create
+    # TODO: append Current.organization to expected params
     @vehicle = Vehicle.new(vehicle_params)
 
     respond_to do |format|
@@ -65,6 +66,6 @@ class VehiclesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def vehicle_params
-      params.expect(vehicle: [ :name, :make_id, :model_id, :trim_id ])
+      params.expect(vehicle: [ :name, :make_id, :model_id, :trim_id, :organization_id ])
     end
 end

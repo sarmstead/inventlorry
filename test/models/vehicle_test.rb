@@ -9,12 +9,12 @@ class VehicleTest < ActiveSupport::TestCase
   end
 
   test "should create a vehicle with related model and trim" do
-    vehicle = Vehicle.new(make: @make, model: @model, trim: @trim)
+    vehicle = Vehicle.new(make: @make, model: @model, trim: @trim, organization: Organization.take)
     assert vehicle.valid?
   end
 
   test "should not create a vehicle with unrelated model and trim" do
-    vehicle = Vehicle.new(make: @make, model: @model, trim: @unassociated_trim)
+    vehicle = Vehicle.new(make: @make, model: @model, trim: @unassociated_trim, organization: Organization.take)
     assert_not vehicle.valid?
   end
 end

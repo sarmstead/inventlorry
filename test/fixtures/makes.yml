@@ -2,6 +2,8 @@
 
 one:
   name: MyString
+  organization: one
 
 two:
   name: MyString
+  organization: one

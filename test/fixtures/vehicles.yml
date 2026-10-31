@@ -5,9 +5,11 @@ one:
   make: one
   model: one
   trim: one
+  organization: one
 
 two:
   name: MyString
   make: two
   model: two
   trim: two
+  organization: one

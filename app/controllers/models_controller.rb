@@ -21,6 +21,7 @@ class ModelsController < ApplicationController
 
   # POST /models or /models.json
   def create
+    # TODO: append Current.organization to expected params
     @model = Model.new(model_params)
 
     respond_to do |format|
@@ -65,6 +66,6 @@ class ModelsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def model_params
-      params.expect(model: [ :name, :make_id ])
+      params.expect(model: [ :name, :make_id, :organization_id  ])
     end
 end

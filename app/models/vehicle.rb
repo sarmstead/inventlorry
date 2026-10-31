@@ -2,6 +2,7 @@ class Vehicle < ApplicationRecord
   belongs_to :make
   belongs_to :model
   belongs_to :trim
+  belongs_to :organization
 
   validate :model_and_trim_must_relate
 
