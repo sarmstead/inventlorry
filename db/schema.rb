@@ -10,13 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_10_31_110108) do
+ActiveRecord::Schema[8.1].define(version: 2026_10_31_174402) do
   create_table "makes", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "organization_id", null: false
     t.index ["organization_id"], name: "index_makes_on_organization_id"
+  end
+
+  create_table "memberships", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "organization_id", null: false
+    t.integer "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_memberships_on_organization_id"
+    t.index ["user_id"], name: "index_memberships_on_user_id"
   end
 
   create_table "models", force: :cascade do |t|
@@ -79,6 +89,8 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_31_110108) do
   end
 
   add_foreign_key "makes", "organizations"
+  add_foreign_key "memberships", "organizations"
+  add_foreign_key "memberships", "users"
   add_foreign_key "models", "makes"
   add_foreign_key "models", "organizations"
   add_foreign_key "sessions", "users"
