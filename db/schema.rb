@@ -22,10 +22,11 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_31_174402) do
   create_table "memberships", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "organization_id", null: false
-    t.integer "role"
+    t.integer "role", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["organization_id"], name: "index_memberships_on_organization_id"
+    t.index ["user_id", "organization_id"], name: "index_memberships_on_user_id_and_organization_id", unique: true
     t.index ["user_id"], name: "index_memberships_on_user_id"
   end
 
