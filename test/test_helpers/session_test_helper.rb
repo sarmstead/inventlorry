@@ -1,22 +1,23 @@
 module SessionTestHelper
   def sign_in_as(user, **options)
-    Current.session = user.sessions.create!
+    post session_path, params: {
+      email_address: user.email_address,
+      password: "password"
+    }
 
-    ActionDispatch::TestRequest.create.cookie_jar.tap do |cookie_jar|
-      cookie_jar.signed[:session_id] = Current.session.id
-      cookies["session_id"] = cookie_jar[:session_id]
+    organization = options[:with_organization]
+    return if organization == false
 
-      unless options[:with_organization] == false
-        cookie_jar.signed[:organization_id] = Current.session.id
-        cookies["organization_id"] = cookie_jar[:organization_id]
-      end
-    end
+    organization ||= user.organizations.first
+    raise "User must belong to an organization" unless organization
+
+    post organization_selection_path, params: {
+      organization_id: organization.id
+    }
   end
 
   def sign_out
-    Current.session&.destroy!
-    cookies.delete("session_id")
-    cookies.delete("organization_id")
+    delete session_path
   end
 end
 
