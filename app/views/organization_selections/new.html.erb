@@ -1,0 +1,19 @@
+<section class="toast__stack">
+  <%= render "shared/flash_alert" %>
+  <%= render "shared/flash_notice" %>
+</section>
+
+<header class="resource__header">
+  <h1 class="resource__title">Hey, <%= Current.user.first_name %>!</h1>
+</header>
+
+<h2 class="resource__form__title">Which organization do you want to use?</h2>
+
+<%= form_with url: organization_selection_path, class: "resource__form" do |form| %>
+  <div class="resource__form__field resource__form__field--select">
+    <%= form.select :organization_id, @organizations.pluck(:name, :id), {}, { class: "resource__form__select" } %>
+  </div>
+  <div class="resource__form__actions">
+    <%= form.submit "Continue", class: "btn btn--primary" %>
+  </div>
+<% end %>
