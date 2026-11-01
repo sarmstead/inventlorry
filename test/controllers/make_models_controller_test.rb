@@ -17,7 +17,7 @@ class MakeModelsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "returns empty JSON array for make with no models" do
-    toyota = Make.create(name: "Toyota")
+    toyota = Make.create(name: "Toyota", organization: Organization.take)
 
     get make_models_url(toyota)
     assert_response :success

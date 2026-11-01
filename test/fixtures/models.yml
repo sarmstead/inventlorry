@@ -3,7 +3,9 @@
 one:
   name: MyString
   make: one
+  organization: one
 
 two:
   name: MyString
   make: two
+  organization: one

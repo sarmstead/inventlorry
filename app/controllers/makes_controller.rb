@@ -21,6 +21,7 @@ class MakesController < ApplicationController
 
   # POST /makes or /makes.json
   def create
+    # TODO: append Current.organization to expected params
     @make = Make.new(make_params)
 
     respond_to do |format|
@@ -65,6 +66,6 @@ class MakesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def make_params
-      params.expect(make: [ :name ])
+      params.expect(make: [ :name, :organization_id ])
     end
 end

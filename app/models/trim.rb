@@ -1,4 +1,6 @@
 class Trim < ApplicationRecord
-  belongs_to :model
   has_many :vehicles
+
+  belongs_to :model
+  belongs_to :organization
 end

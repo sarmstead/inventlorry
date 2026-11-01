@@ -21,6 +21,7 @@ class TrimsController < ApplicationController
 
   # POST /trims or /trims.json
   def create
+    # TODO: append Current.organization to expected params
     @trim = Trim.new(trim_params)
 
     respond_to do |format|
@@ -65,6 +66,6 @@ class TrimsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def trim_params
-      params.expect(trim: [ :name, :model_id ])
+      params.expect(trim: [ :name, :model_id, :organization_id ])
     end
 end

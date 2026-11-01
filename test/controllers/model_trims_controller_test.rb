@@ -17,7 +17,7 @@ class ModelTrimsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "returns empty JSON array for model with no trims" do
-    model = Model.create(name: "Super Duper Model", make: @model.make)
+    model = Model.create(name: "Super Duper Model", make: @model.make, organization: Organization.take)
 
     get model_trims_url(model)
     assert_response :success

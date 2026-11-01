@@ -3,7 +3,9 @@
 one:
   name: MyString
   model: one
+  organization: one
 
 two:
   name: MyString
   model: two
+  organization: one

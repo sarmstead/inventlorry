@@ -64,6 +64,12 @@
   margin: auto;
 }
 
+.resource__form__title {
+  color: var(--color-neutral-300);
+  font-weight: 500;
+  margin-bottom: var(--spacing-1);
+}
+
 .resource__form__field {
   display: flex;
   flex-direction: column;

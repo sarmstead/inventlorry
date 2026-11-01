@@ -10,11 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_10_29_223226) do
+ActiveRecord::Schema[8.1].define(version: 2026_10_31_174402) do
   create_table "makes", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "organization_id", null: false
+    t.index ["organization_id"], name: "index_makes_on_organization_id"
+  end
+
+  create_table "memberships", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "organization_id", null: false
+    t.integer "role", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_memberships_on_organization_id"
+    t.index ["user_id", "organization_id"], name: "index_memberships_on_user_id_and_organization_id", unique: true
+    t.index ["user_id"], name: "index_memberships_on_user_id"
   end
 
   create_table "models", force: :cascade do |t|
@@ -22,7 +35,15 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_29_223226) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "make_id", null: false
+    t.integer "organization_id", null: false
     t.index ["make_id"], name: "index_models_on_make_id"
+    t.index ["organization_id"], name: "index_models_on_organization_id"
+  end
+
+  create_table "organizations", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -39,7 +60,9 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_29_223226) do
     t.integer "model_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "organization_id", null: false
     t.index ["model_id"], name: "index_trims_on_model_id"
+    t.index ["organization_id"], name: "index_trims_on_organization_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -59,11 +82,19 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_29_223226) do
     t.integer "trim_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "organization_id", null: false
     t.index ["make_id"], name: "index_vehicles_on_make_id"
     t.index ["model_id"], name: "index_vehicles_on_model_id"
+    t.index ["organization_id"], name: "index_vehicles_on_organization_id"
     t.index ["trim_id"], name: "index_vehicles_on_trim_id"
   end
 
+  add_foreign_key "makes", "organizations"
+  add_foreign_key "memberships", "organizations"
+  add_foreign_key "memberships", "users"
   add_foreign_key "models", "makes"
+  add_foreign_key "models", "organizations"
   add_foreign_key "sessions", "users"
+  add_foreign_key "trims", "organizations"
+  add_foreign_key "vehicles", "organizations"
 end

@@ -1,0 +1,25 @@
+<% if Current.user.present? %>
+  <button class="profile-menu__trigger btn btn--secondary" popovertarget="profile-menu">
+    <% if Current.organization&.name.present? %>
+      <span class="profile-menu__trigger__organization"><%= Current.organization.name %></span>
+    <% end %>
+    <span class="profile-menu__trigger__user"><%= Current.user.first_name[0] %></span>
+    <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="profile-menu__trigger__mobile-trigger">
+      <path d="M3 12H21M3 6H21M9 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <aside class="popover profile-menu" id="profile-menu" popover>
+    <ul class="profile-menu__list">
+      <p class="profile-menu__list__username"><%= Current.user.full_name %></p>
+      <%= link_to "Change organization", new_organization_selection_path, class: "link profile-menu__list__link" %>
+      <div class="profile-menu__list__link--logout">
+        <%= button_to session_path(Current.session), method: :delete, class: "link profile-menu__list__link" do %>
+          <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 8L22 12M22 12L18 16M22 12H9M15 4.20404C13.7252 3.43827 12.2452 3 10.6667 3C5.8802 3 2 7.02944 2 12C2 16.9706 5.8802 21 10.6667 21C12.2452 21 13.7252 20.5617 15 19.796" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Logout</span>
+        <% end %>
+      </div>
+    </ul>
+  </aside>
+<% end %>

@@ -19,7 +19,7 @@ class MakesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create make" do
     assert_difference("Make.count") do
-      post makes_url, params: { make: { name: @make.name } }
+      post makes_url, params: { make: { name: @make.name, organization_id: @make.organization_id } }
     end
 
     assert_redirected_to make_url(Make.last)
