@@ -3,7 +3,7 @@ class ModelsController < ApplicationController
 
   # GET /models or /models.json
   def index
-    @models = Model.all
+    @models = Current.organization.models
   end
 
   # GET /models/1 or /models/1.json
@@ -12,7 +12,7 @@ class ModelsController < ApplicationController
 
   # GET /models/new
   def new
-    @model = Model.new
+    @model = Current.organization.models.new
   end
 
   # GET /models/1/edit
@@ -22,7 +22,7 @@ class ModelsController < ApplicationController
   # POST /models or /models.json
   def create
     # TODO: append Current.organization to expected params
-    @model = Model.new(model_params)
+    @model = Current.organization.models.new(model_params)
 
     respond_to do |format|
       if @model.save
@@ -61,7 +61,7 @@ class ModelsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_model
-      @model = Model.find(params.expect(:id))
+      @model = Current.organization.models.find(params.expect(:id))
     end
 
     # Only allow a list of trusted parameters through.
