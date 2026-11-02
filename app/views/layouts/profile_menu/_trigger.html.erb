@@ -1,6 +1,6 @@
 <% if Current.user.present? %>
   <button class="profile-menu__trigger btn btn--secondary" popovertarget="profile-menu">
-    <% if Current.organization&.name.present? %>
+    <% if Current.organization.present? %>
       <span class="profile-menu__trigger__organization"><%= Current.organization.name %></span>
     <% end %>
     <span class="profile-menu__trigger__user"><%= Current.user.first_name[0] %></span>
