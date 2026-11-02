@@ -35,7 +35,7 @@ export default class extends Controller {
       this.modelTarget.replaceChildren();
       const emptyOption = document.createElement("option");
       emptyOption.innerText = "-- select model --";
-      emptyOption.value = -1;
+      emptyOption.value = "";
       this.modelTarget.appendChild(emptyOption);
 
       models.forEach((model) => {
@@ -61,7 +61,7 @@ export default class extends Controller {
       this.trimTarget.replaceChildren();
       const emptyOption = document.createElement("option");
       emptyOption.innerText = "-- select trim --";
-      emptyOption.value = -1;
+      emptyOption.value = "";
       this.trimTarget.appendChild(emptyOption);
 
       trims.forEach((trim) => {
@@ -81,7 +81,7 @@ export default class extends Controller {
   }
 
   selectTrim() {
-    if (this.trimTarget.value !== -1) {
+    if (this.trimTarget.value !== "") {
       this.createTarget.disabled = false;
     } else {
       return;
@@ -89,17 +89,17 @@ export default class extends Controller {
   }
 
   disableMakeField() {
-    this.makeTarget.value = -1;
+    this.makeTarget.value = "";
     this.makeTarget.disabled = true;
   }
 
   disableModelField() {
-    this.modelTarget.value = -1;
+    this.modelTarget.value = "";
     this.modelTarget.disabled = true;
   }
 
   disableTrimField() {
-    this.trimTarget.value = -1;
+    this.trimTarget.value = "";
     this.trimTarget.disabled = true;
   }
 }

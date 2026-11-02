@@ -16,6 +16,11 @@
     <%= form.text_field :name, class: "resource__form__input" %>
   </div>
 
+  <div class="resource__form__field resource__form__field--select">
+    <%= form.label :model_id, class: "resource__form__label" %>
+    <%= form.select :model_id, models, { include_blank: "-- select model --" }, { class: "resource__form__select", required: true } %>
+  </div>
+
   <div class="resource__form__actions resource__form__actions--right">
     <%= form.submit "Save", { class: "btn btn--primary" } %>
   </div>

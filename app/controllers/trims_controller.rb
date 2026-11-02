@@ -13,10 +13,12 @@ class TrimsController < ApplicationController
   # GET /trims/new
   def new
     @trim = Current.organization.trims.new
+    @models = Current.organization.models.pluck(:name, :id)
   end
 
   # GET /trims/1/edit
   def edit
+    @models = Current.organization.models.pluck(:name, :id)
   end
 
   # POST /trims or /trims.json

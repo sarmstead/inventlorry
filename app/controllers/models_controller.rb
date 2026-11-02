@@ -13,10 +13,12 @@ class ModelsController < ApplicationController
   # GET /models/new
   def new
     @model = Current.organization.models.new
+    @makes = Current.organization.makes.pluck(:name, :id)
   end
 
   # GET /models/1/edit
   def edit
+    @makes = Current.organization.makes.pluck(:name, :id)
   end
 
   # POST /models or /models.json
