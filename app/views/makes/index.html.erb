@@ -8,7 +8,7 @@
   <%= link_to "New make", new_make_path, class: "btn btn--primary" %>
 </header>
 
-<% if @makes.any? %>
+<% if @makes.present? %>
   <div id="makes">
     <div class="resource__table__container">
       <table class="resource__table">

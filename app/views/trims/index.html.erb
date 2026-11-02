@@ -8,7 +8,7 @@
   <%= link_to "New trim", new_trim_path, class: "btn btn--primary" %>
 </header>
 
-<% if @trims.any? %>
+<% if @trims.present? %>
   <div id="trims">
     <div class="resource__table__container">
       <table class="resource__table">

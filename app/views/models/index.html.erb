@@ -8,7 +8,7 @@
   <%= link_to "New model", new_model_path, class: "btn btn--primary" %>
 </header>
 
-<% if @models.any? %>
+<% if @models.present? %>
   <div id="models">
     <div class="resource__table__container">
       <table class="resource__table">
