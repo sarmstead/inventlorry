@@ -4,6 +4,8 @@ class Vehicle < ApplicationRecord
   belongs_to :trim
   belongs_to :organization
 
+  validates :name, presence: true
+
   validate :model_and_trim_must_relate
   validate :all_properties_belong_to_vehicle_organization
 

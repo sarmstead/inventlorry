@@ -3,4 +3,6 @@ class Trim < ApplicationRecord
 
   belongs_to :model
   belongs_to :organization
+
+  validates :name, presence: true
 end
