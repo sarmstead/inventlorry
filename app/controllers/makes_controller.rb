@@ -3,7 +3,7 @@ class MakesController < ApplicationController
 
   # GET /makes or /makes.json
   def index
-    @makes = Make.all
+    @makes = Current.organization.makes
   end
 
   # GET /makes/1 or /makes/1.json
@@ -12,7 +12,7 @@ class MakesController < ApplicationController
 
   # GET /makes/new
   def new
-    @make = Make.new
+    @make = Current.organization.makes.new
   end
 
   # GET /makes/1/edit
@@ -21,8 +21,7 @@ class MakesController < ApplicationController
 
   # POST /makes or /makes.json
   def create
-    # TODO: append Current.organization to expected params
-    @make = Make.new(make_params)
+    @make = Current.organization.makes.new(make_params)
 
     respond_to do |format|
       if @make.save
@@ -61,11 +60,11 @@ class MakesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_make
-      @make = Make.find(params.expect(:id))
+      @make = Current.organization.makes.find(params.expect(:id))
     end
 
     # Only allow a list of trusted parameters through.
     def make_params
-      params.expect(make: [ :name, :organization_id ])
+      params.expect(make: [ :name ])
     end
 end

@@ -3,7 +3,7 @@ class VehiclesController < ApplicationController
 
   # GET /vehicles or /vehicles.json
   def index
-    @vehicles = Vehicle.all
+    @vehicles = Current.organization.vehicles
   end
 
   # GET /vehicles/1 or /vehicles/1.json
@@ -12,7 +12,7 @@ class VehiclesController < ApplicationController
 
   # GET /vehicles/new
   def new
-    @vehicle = Vehicle.new
+    @vehicle = Current.organization.vehicles.new
   end
 
   # GET /vehicles/1/edit
@@ -22,7 +22,7 @@ class VehiclesController < ApplicationController
   # POST /vehicles or /vehicles.json
   def create
     # TODO: append Current.organization to expected params
-    @vehicle = Vehicle.new(vehicle_params)
+    @vehicle = Current.organization.vehicles.new(vehicle_params)
 
     respond_to do |format|
       if @vehicle.save
@@ -61,7 +61,7 @@ class VehiclesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_vehicle
-      @vehicle = Vehicle.find(params.expect(:id))
+      @vehicle = Current.organization.vehicles.find(params.expect(:id))
     end
 
     # Only allow a list of trusted parameters through.

@@ -3,7 +3,7 @@ class TrimsController < ApplicationController
 
   # GET /trims or /trims.json
   def index
-    @trims = Trim.all
+    @trims = Current.organization.trims
   end
 
   # GET /trims/1 or /trims/1.json
@@ -12,7 +12,7 @@ class TrimsController < ApplicationController
 
   # GET /trims/new
   def new
-    @trim = Trim.new
+    @trim = Current.organization.trims.new
   end
 
   # GET /trims/1/edit
@@ -22,7 +22,7 @@ class TrimsController < ApplicationController
   # POST /trims or /trims.json
   def create
     # TODO: append Current.organization to expected params
-    @trim = Trim.new(trim_params)
+    @trim = Current.organization.trims.new(trim_params)
 
     respond_to do |format|
       if @trim.save
@@ -61,7 +61,7 @@ class TrimsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_trim
-      @trim = Trim.find(params.expect(:id))
+      @trim = Current.organization.trims.find(params.expect(:id))
     end
 
     # Only allow a list of trusted parameters through.
