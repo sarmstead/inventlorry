@@ -13,10 +13,12 @@ class VehiclesController < ApplicationController
   # GET /vehicles/new
   def new
     @vehicle = Current.organization.vehicles.new
+    @makes = Current.organization.makes.with_models.pluck(:name, :id)
   end
 
   # GET /vehicles/1/edit
   def edit
+    @makes = Current.organization.makes.with_models.pluck(:name, :id)
   end
 
   # POST /vehicles or /vehicles.json
