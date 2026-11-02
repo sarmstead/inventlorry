@@ -1,8 +1,20 @@
 <tr id="<%= dom_id vehicle %>">
   <td class="resource__table__td" title="<%= vehicle.name %>"><%= link_to vehicle.name, vehicle %></td>
-  <td class="resource__table__td" title="<%= vehicle.make.name %>"><%= link_to vehicle.make.name, vehicle.make %></td>
-  <td class="resource__table__td" title="<%= vehicle.model.name %>"><%= link_to vehicle.model.name, vehicle.model %></td>
-  <td class="resource__table__td" title="<%= vehicle.trim.name %>"><%= link_to vehicle.trim.name, vehicle.trim %></td>
+  <% if vehicle.make %>
+    <td class="resource__table__td" title="<%= vehicle.make.name %>"><%= link_to vehicle.make.name, vehicle.make %></td>
+  <% else %>
+    <td></td>
+  <% end %>
+  <% if vehicle.model %>
+    <td class="resource__table__td" title="<%= vehicle.model.name %>"><%= link_to vehicle.model.name, vehicle.model %></td>
+  <% else %>
+    <td></td>
+  <% end %>
+  <% if vehicle.trim %>
+    <td class="resource__table__td" title="<%= vehicle.trim.name %>"><%= link_to vehicle.trim.name, vehicle.trim %></td>
+  <% else %>
+    <td></td>
+  <% end %>
   <td class="resource__table__td"><%= vehicle.updated_at.strftime("%b %-d, %Y") %></td>
   <td class="resource__table__td resource__actions">
     <button popovertarget="<%= dom_id vehicle %>__menu" class="btn btn--icon resource__menu__button">
