@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_10_31_174402) do
+ActiveRecord::Schema[8.1].define(version: 2026_11_02_020430) do
   create_table "makes", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "organization_id", null: false
@@ -31,7 +31,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_31_174402) do
   end
 
   create_table "models", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "make_id", null: false
@@ -56,7 +56,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_31_174402) do
   end
 
   create_table "trims", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.integer "model_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -76,7 +76,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_31_174402) do
   end
 
   create_table "vehicles", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.integer "make_id", null: false
     t.integer "model_id", null: false
     t.integer "trim_id", null: false

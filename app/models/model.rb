@@ -6,4 +6,6 @@ class Model < ApplicationRecord
   belongs_to :organization
 
   scope :with_trims, -> { joins(:trims).distinct }
+
+  validates :name, presence: true
 end

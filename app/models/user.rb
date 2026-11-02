@@ -7,6 +7,9 @@ class User < ApplicationRecord
 
   normalizes :email_address, with: ->(e) { e.strip.downcase }
 
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+
   def full_name
     "#{first_name} #{last_name}"
   end
