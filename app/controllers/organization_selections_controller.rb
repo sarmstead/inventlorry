@@ -7,13 +7,7 @@ class OrganizationSelectionsController < ApplicationController
 
   def create
     organization = Current.user.organizations.find(params.expect(:organization_id))
-    session[:organization_id] = organization.id
-    cookies.signed[:organization_id] = {
-      value: organization.id,
-      httponly: true,
-      same_site: :lax,
-      secure: Rails.env.production?
-    }
+    set_current_organization_as(organization)
     redirect_to after_authentication_url
   end
 end

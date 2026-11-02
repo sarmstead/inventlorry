@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
       if user.organizations.count == 0
         # TODO onboarding flow
       elsif user.organizations.count == 1
+        set_current_organization_as(user.organizations.first)
         redirect_to after_authentication_url
       else
         redirect_to new_organization_selection_url
